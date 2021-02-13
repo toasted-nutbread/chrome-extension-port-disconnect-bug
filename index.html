@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chrome Extension Port Disconnect Bug</title>
+<style>
+:root {
+  width: 100%;
+  height: 100%;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column nowrap;
+  width: 100%;
+  min-height: 80%;
+  padding: 0;
+  margin: 0;
+}
+#frame {
+  width: 360px;
+  height: 240px;
+  border: 1px solid #aaa;
+}
+</style>
+</head>
+<body>
+
+<div>Content</div>
+<div id="frame-container"></div>
+
+<script>
+if (window === window.top) {
+  const frame = document.createElement('iframe');
+  frame.src = location.href;
+  frame.id = 'frame';
+  document.querySelector('#frame-container').appendChild(frame);
+}
+</script>
+
+</body>
+</html>

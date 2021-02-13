@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Port Disconnect Bug (MV3)",
+  "version": "0.0.0",
+  "permissions": [],
+  "background": {"service_worker": "background.js"},
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*", "file://*/*"],
+    "js": ["content-script.js"],
+    "all_frames": true
+  }]
+}
